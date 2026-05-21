@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referências de Conteúdos - Invert Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray-light: #999999;
+            --gray-dark: #666666;
+            --accent-beige: #C8B6A6;
+            --accent-blue: #A8C5E0;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            width: 100%;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .logo span {
+            font-weight: 400;
+        }
+
+        nav {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--white);
+        }
+
+        .btn-solicitar {
+            background: var(--accent-beige);
+            color: var(--black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-solicitar:hover {
+            opacity: 0.85;
+            color: var(--black);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 4rem;
+        }
+
+        .tag {
+            display: inline-block;
+            border: 1px solid var(--white);
+            border-radius: 20px;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 .italic {
+            font-style: italic;
+            color: var(--accent-blue);
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        .hero p .highlight {
+            border: 2px solid var(--white);
+            border-radius: 25px;
+            padding: 0.2rem 1rem;
+            display: inline-block;
+            margin: 0 0.3rem;
+        }
+
+        .hero p .italic {
+            font-style: italic;
+            color: var(--accent-blue);
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+            margin-bottom: 0;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gray-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .section-title .italic {
+            font-style: italic;
+            color: var(--accent-blue);
+            font-weight: 400;
+        }
+
+        /* Content List Items */
+        .content-list {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .content-item {
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 0;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .content-item:hover {
+            padding-left: 2rem;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-number {
+            font-size: 1rem;
+            color: var(--gray-dark);
+            margin-right: 3rem;
+            min-width: 40px;
+        }
+
+        .item-title-wrapper {
+            flex: 1;
+        }
+
+        .item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .content-item:hover .item-title {
+            color: var(--accent-blue);
+        }
+
+        .item-tags {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tag-badge {
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 0.4rem 1rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-light);
+            transition: all 0.3s ease;
+        }
+
+        .tag-badge.estatico {
+            border-color: #64C8FF;
+            color: #64C8FF;
+        }
+
+        .tag-badge.carrossel {
+            border-color: #FF64C8;
+            color: #FF64C8;
+        }
+
+        .tag-badge.reels {
+            border-color: #FFC864;
+            color: #FFC864;
+        }
+
+        .tag-badge.story {
+            border-color: #9664FF;
+            color: #9664FF;
+        }
+
+        .content-item:hover .tag-badge {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .expand-icon {
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .content-item:hover .expand-icon {
+            background: var(--white);
+            color: var(--black);
+            transform: rotate(45deg);
+        }
+
+        /* Expanded Content */
+        .item-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding-left: 4rem;
+        }
+
+        .item-details.active {
+            max-height: 1000px;
+            padding-top: 2rem;
+        }
+
+        .item-description {
+            color: var(--gray-light);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 900px;
+        }
+
+        .item-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border: 1px solid var(--white);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .item-link:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .media-note {
+            color: var(--gray-dark);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--gray-dark);
+            font-size: 0.85rem;
+        }
+
+        .footer-left {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .footer-link {
+            color: var(--gray-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--white);
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .item-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .item-title {
+                font-size: 1.5rem;
+            }
+
+            .item-details {
+                padding-left: 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-left {
+                flex-direction: column;
+            }
+        }
+
+        /* JavaScript Toggle Class */
+        .content-item.expanded .expand-icon {
+            transform: rotate(45deg);
+            background: var(--white);
+            color: var(--black);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <strong>Karina</strong> <span>Souza</span>
+                </div>
+                <nav>
+                    <a href="#sobre">SOBRE</a>
+                    <a href="#servicos">SERVIÇOS</a>
+                    <a href="#portfolio">PORTFÓLIO</a>
+                    <a href="#contato">CONTATO</a>
+                    <a href="#" class="btn-solicitar">SOLICITAR ORÇAMENTO</a>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero">
+            <span class="tag">• REFERÊNCIAS DE CONTEÚDOS</span>
+            
+            <h1>
+                Referências<br>
+                <span class="italic">estratégicas</span>
+            </h1>
+            
+            <p>
+                Transformando <span class="highlight">ideias</span> e 
+                <span class="italic">inspirações</span> em <span class="highlight">estratégias</span> 
+                de conteúdo!
+            </p>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <p class="section-label">— CONTEÚDOS</p>
+                <h2 class="section-title">
+                    Para o <span class="italic">Invert Studio</span>
+                </h2>
+            </div>
+
+            <div class="content-list">
+                
+                <!-- ITEM 1 - EXEMPLO ESTÁTICO -->
+                <div class="content-item" onclick="toggleExpand(this)">
+                    <div class="item-header">
+                        <span class="item-number">01.</span>
+                        <div class="item-title-wrapper">
+                            <h3 class="item-title">Título da Referência 1</h3>
+                            <div class="item-tags">
+                                <span class="tag-badge estatico">POST ESTÁTICO</span>
+                                <span class="tag-badge">INSTAGRAM</span>
+                            </div>
+                        </div>
+                        <div class="expand-icon">+</div>
+                    </div>
+                    <div class="item-details">
+                        <p class="item-description">
+                            Descreva aqui por que esta referência é relevante para o Invert Studio. 
+                            Explique o conceito visual, a mensagem que comunica, como se conecta com o público-alvo 
+                            da produtora audiovisual e de que forma pode ser adaptada para o perfil deles.
+                        </p>
+                        <a href="https://instagram.com/exemplo" class="item-link" target="_blank">
+                            <span>🔗</span>
+                            <span>VER REFERÊNCIA</span>
+                        </a>
+                        <p class="media-note">📎 Mídia anexada: [adicione o link ou nome do arquivo aqui]</p>
+                    </div>
+                </div>
+
+                <!-- ITEM 2 - EXEMPLO CARROSSEL -->
+                <div class="content-item" onclick="toggleExpand(this)">
+                    <div class="item-header">
+                        <span class="item-number">02.</span>
+                        <div class="item-title-wrapper">
+                            <h3 class="item-title">Título da Referência 2</h3>
+                            <div class="item-tags">
+                                <span class="tag-badge carrossel">CARROSSEL</span>
+                                <span class="tag-badge">INSTAGRAM</span>
+                            </div>
+                        </div>
+                        <div class="expand-icon">+</div>
+                    </div>
+                    <div class="item-details">
+                        <p class="item-description">
+                            Descreva aqui por que esta referência é relevante para o Invert Studio. 
+                            Explique o conceito visual, a mensagem que comunica, como se conecta com o público-alvo 
+                            da produtora audiovisual e de que forma pode ser adaptada para o perfil deles.
+                        </p>
+                        <a href="https://instagram.com/exemplo" class="item-link" target="_blank">
+                            <span>🔗</span>
+                            <span>VER REFERÊNCIA</span>
+                        </a>
+                        <p class="media-note">📎 Mídia anexada: [adicione o link ou nome do arquivo aqui]</p>
+                    </div>
+                </div>
+
+                <!-- ITEM 3 - EXEMPLO REELS -->
+                <div class="content-item" onclick="toggleExpand(this)">
+                    <div class="item-header">
+                        <span class="item-number">03.</span>
+                        <div class="item-title-wrapper">
+                            <h3 class="item-title">Título da Referência 3</h3>
+                            <div class="item-tags">
+                                <span class="tag-badge reels">REELS</span>
+                                <span class="tag-badge">INSTAGRAM</span>
+                            </div>
+                        </div>
+                        <div class="expand-icon">+</div>
+                    </div>
+                    <div class="item-details">
+                        <p class="item-description">
+                            Descreva aqui por que esta referência é relevante para o Invert Studio. 
+                            Explique o conceito visual, a mensagem que comunica, como se conecta com o público-alvo 
+                            da produtora audiovisual e de que forma pode ser adaptada para o perfil deles.
+                        </p>
+                        <a href="https://instagram.com/exemplo" class="item-link" target="_blank">
+                            <span>🔗</span>
+                            <span>VER REFERÊNCIA</span>
+                        </a>
+                        <p class="media-note">📎 Mídia anexada: [adicione o link ou nome do arquivo aqui]</p>
+                    </div>
+                </div>
+
+                <!-- ITEM 4 - EXEMPLO STORY -->
+                <div class="content-item" onclick="toggleExpand(this)">
+                    <div class="item-header">
+                        <span class="item-number">04.</span>
+                        <div class="item-title-wrapper">
+                            <h3 class="item-title">Título da Referência 4</h3>
+                            <div class="item-tags">
+                                <span class="tag-badge story">STORY</span>
+                                <span class="tag-badge">INSTAGRAM</span>
+                            </div>
+                        </div>
+                        <div class="expand-icon">+</div>
+                    </div>
+                    <div class="item-details">
+                        <p class="item-description">
+                            Descreva aqui por que esta referência é relevante para o Invert Studio. 
+                            Explique o conceito visual, a mensagem que comunica, como se conecta com o público-alvo 
+                            da produtora audiovisual e de que forma pode ser adaptada para o perfil deles.
+                        </p>
+                        <a href="https://instagram.com/exemplo" class="item-link" target="_blank">
+                            <span>🔗</span>
+                            <span>VER REFERÊNCIA</span>
+                        </a>
+                        <p class="media-note">📎 Mídia anexada: [adicione o link ou nome do arquivo aqui]</p>
+                    </div>
+                </div>
+
+                <!-- ADICIONE MAIS ITENS COPIANDO A ESTRUTURA ACIMA -->
+
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <a href="https://instagram.com/seu_instagram" class="footer-link" target="_blank">@seu_instagram</a>
+                </div>
+                <div class="footer-right">
+                    © 2025 Karina Souza · Niterói, Rio de Janeiro
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleExpand(element) {
+            const details = element.querySelector('.item-details');
+            const allItems = document.querySelectorAll('.content-item');
+            const allDetails = document.querySelectorAll('.item-details');
+            
+            // Fechar todos os outros itens
+            allItems.forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('expanded');
+                }
+            });
+            allDetails.forEach(detail => {
+                if (detail !== details) {
+                    detail.classList.remove('active');
+                }
+            });
+            
+            // Toggle do item clicado
+            element.classList.toggle('expanded');
+            details.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
